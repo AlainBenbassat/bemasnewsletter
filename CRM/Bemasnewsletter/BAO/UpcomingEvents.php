@@ -94,7 +94,7 @@ class CRM_Bemasnewsletter_BAO_UpcomingEvents {
     return substr($startDate, 8, 2) . '/' . substr($startDate, 5, 2);
   }
 
-  private static function stripEventCode(string $title) { return $title;
+  private static function stripEventCode(string $title) {
     $pieces = explode(' - ', $title);
 
     // make sure we have at least 2 pieces
