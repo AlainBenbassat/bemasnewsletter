@@ -109,7 +109,7 @@ class CRM_Bemasnewsletter_BAO_UpcomingEvents {
     }
 
     // if the event code is too short or too long it's not an event code
-    if (strlen($pieces[0]) < 7 || strlen($pieces[0]) > 11) {
+    if (strlen($pieces[0]) < 7 || strlen($pieces[0]) > 13) {
       return $title;
     }
 
