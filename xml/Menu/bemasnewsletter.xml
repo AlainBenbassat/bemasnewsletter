@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/bemasnewsletter-upcoming-events</path>
+    <page_callback>CRM_Bemasnewsletter_Form_UpcomingEvents</page_callback>
+    <title>UpcomingEvents</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
