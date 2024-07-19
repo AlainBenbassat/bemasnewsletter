@@ -55,6 +55,8 @@ class CRM_Bemasnewsletter_BAO_UpcomingEvents {
   }
 
   private static function getEventsInRange(string $from, string $to, string $newsletterLanguage, array $eventCodeSuffix) {
+    $langPrefix = substr($newsletterLanguage, 0, 2); // get fr from fr_FR, nl from nl_NL...
+
     $events = \Civi\Api4\Event::get(FALSE)
       ->addSelect('id', 'event_type_id:label', 'start_date', 'title')
       ->addWhere('start_date', '>=', $from . ' 00:00:00')
@@ -78,7 +80,7 @@ class CRM_Bemasnewsletter_BAO_UpcomingEvents {
       $eventArray[$eventType][$eventMonthName][$eventId] = [
         'start_date' => self::getFormattedDate($event['start_date']),
         'title' => self::stripEventCode($event['title']),
-        'url' => 'https://www.bemas.org/event/' . $eventId . '?utm_source=nieuwsbrief&utm_medium=email&utm_campaign=' . $eventId,
+        'url' => "https://www.bemas.org/event/$langPrefix/$eventId?utm_source=nieuwsbrief&utm_medium=email&utm_campaign=$eventId",
       ];
     }
 
